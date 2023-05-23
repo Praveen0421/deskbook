@@ -1,5 +1,9 @@
 $font-family-base: 'Inter', sans-serif;
 
+// Contrast ratio
+$min-contrast-ratio: 3;
+
+// Border
 $border-radius: 4px;
 
 // Form Control
@@ -16,5 +20,5 @@ $form-floating-label-transform:   scale(0.85) translateY(20px) translateX(40px) 
  
 
 // navbar
-// $--bs-btn-padding: $nav-btn-padding;
+
 // End: navbar

@@ -1,65 +1,43 @@
-// registration  form
-.registration-wrapper {
-    background-color: rgb(0, 0, 0);
-    border-radius: 0.3rem;
-    max-width: 450px;
-    padding: 0 48px 60px 48px;
-
-    .brand-wrapper {
-        padding: 48px 32px;
-
-        .brand-title {
-            color: $secondary-grey;
-        }
-    }
-}
-
-.main-container {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.58)), url("../../images/Splash_DRC.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    padding: 32px 0px;
-    overflow: auto;
-}
-
 .form-floating {
     position: relative;
-    border: $input-border-color;
+    border: 2px solid $input-border-color;
     border-radius: 6px;
-    box-sizing: border-box;
 
     .label {
-        transform:$form-floating-label-transform;
-        color: $secondary-grey ;
+        top: 14px;
+        left: 40px;
         width: fit-content;
         height: fit-content;
-        transition: all 0.5s ease-out;
-
+        transition: all 0.2s ease-out;
     }
 
     .form-control {
-
         background-color: $registration-input-bg;
         color: $input-color;
         box-shadow: $input-focus-box-shadow;
         padding: $input-padding;
+        border: none;
 
+        &:focus,
+        &:not(:placeholder-shown) {
+            &~.label {
+                top: -30px;
+                left: -16px;
+                background-color: $registration-input-bg;
+                color: $input-placeholder-color;
+            }
+        }
     }
-}
-
-.form-control:focus~.label,
-.form-control:not(:placeholder-shown)~.label {
-    top: -30px;
-    left: -16px;
-    background-color: $registration-input-bg;
-    color: $input-placeholder-color;
-
 }
 
 
 .form-floating:focus-within {
-    border-color: red;
+    border-color: $danger;
+}
+
+// invalid-message
+.invalid-feadback {
+    font-size: 14px;
 }
 
 // icons
