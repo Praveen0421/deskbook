@@ -13,11 +13,11 @@ export class UserRegisterComponent {
   form: FormGroup;
   submitted = false;
   isChecked: boolean = false;
-  show !: boolean;
+  password !: boolean;
+  confirmPassword!:boolean;
 
   namePattern = "^[A-Za-z']+$";
-  emailPattern1 = "^[a-zA-Z0-9._%+-]{3,80}\@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-  // emailPattern2 = "[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+  emailPattern1 = "^[a-zA-Z0-9._%+-]{3,80}\@[a-zA-Z0-9.-]+\.com$";
   passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@!#$%^&*/().,':;+=~? ]).+$";
 
   constructor(
@@ -86,11 +86,14 @@ export class UserRegisterComponent {
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
   }
-  // onclick 
-  toggleText() {
+  // onclick icon show password and change the icon
+  togglePasswordText() {
     this.isChecked = !this.isChecked
- this.show =this.isChecked;
-
+    this.password =this.isChecked;
+  }
+  toggleConfirmPasswordText() {
+    this.isChecked = !this.isChecked
+    this.confirmPassword =this.isChecked;
   }
 
   onSubmit(): void {

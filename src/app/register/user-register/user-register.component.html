@@ -72,11 +72,11 @@
             <div class="mb-3">
                 <div class="form-floating">
                     <input type="Password" class="form-control"  formControlName="password" required minlength="8" maxlength="25"
-                     placeholder="Password" >
+                     placeholder="Password" [attr.type]="password ? 'text':'password'">
                     <label for="floatingInput" class="label px-1 py-0  badge text-bg-input-bg">Password</label>
                     <span class="icon bi bi-key-fill"></span>
-                    <span class=" eye-icon bi bi-eye-slash-fill"></span>
-                    <span *ngIf="false" class=" eye-icon bi bi-eye-fill"></span>
+                    <span (click)="togglePasswordText()" *ngIf="!password" class=" eye-icon bi bi-eye-slash-fill "></span>
+                    <span (click)="togglePasswordText()" *ngIf="password" class=" eye-icon bi bi-eye-fill"></span>
                 </div>
                 <div *ngIf="submitted && f['password'].errors" class="invalid-feedback d-block">
                     <div *ngIf="f['password'].errors['required']">This field is Required</div>
@@ -91,12 +91,11 @@
             <div class="mb-3">
                 <div class="form-floating">
                     <input type="Password" class="form-control"  formControlName="confirmPassword" required
-                    placeholder="Confirm Password">
+                    placeholder="Confirm Password" [attr.type]="confirmPassword ? 'text':'password'">
                     <label for="floatingInput" class="label px-1 py-0  badge text-bg-input-bg">Confirm Password</label>
                     <span class="icon bi bi-key-fill"></span>
-                    <input type="checkbox" (change)="toggleText()">
-                    <span *ngIf="!show" class=" eye-icon bi bi-eye-slash-fill "></span>
-                    <span *ngIf="show" class=" eye-icon bi bi-eye-fill"></span>
+                    <span (click)="toggleConfirmPasswordText()" *ngIf="!confirmPassword" class=" eye-icon bi bi-eye-slash-fill "></span>
+                    <span (click)="toggleConfirmPasswordText()" *ngIf="confirmPassword" class=" eye-icon bi bi-eye-fill"></span>
                 </div>
                 <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback d-block">
                     <div *ngIf="f['confirmPassword'].errors['required']">This field is Required</div>
