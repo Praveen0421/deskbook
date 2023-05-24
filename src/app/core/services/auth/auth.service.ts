@@ -96,7 +96,7 @@ export class AuthService {
    * Contains token_type, access_token
    */
   public getAuthorizationHeaderValue(): string {
-    return `${this.currentUser.token_type} ${this.currentUser.access_token}`;
+    return `${this.currentUser?.token_type} ${this.currentUser?.access_token}`;
   }
 
   /** Clear User session */

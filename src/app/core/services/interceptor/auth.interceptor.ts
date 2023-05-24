@@ -38,13 +38,17 @@ export class AuthInterceptor implements HttpInterceptor {
     HttpUserEvent<object> |
     HttpEvent<any>> {
     const token: string = this.authService.getAuthorizationHeaderValue();
-    request = request.clone({
-      setHeaders: {
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache',
-        'Authorization': `${token}`
-      }
-    });
+    
+    if( token !== ''){
+      request = request.clone({
+        setHeaders: {
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache',
+          'Authorization': `${token}`
+        }
+      });
+    }
+
     return next.handle(request)
       .pipe(
         catchError((errorResponse: HttpErrorResponse) => {
